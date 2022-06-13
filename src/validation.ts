@@ -87,7 +87,7 @@ export const getErrorValidation = async ({
     for (let i = 0; i < fileList.length; i += 1) {
       const { file } = fileList[i];
       if (!file) continue;
-      if (!isImageValid(file.type)) {
+      if (!Array.isArray(acceptType) && !isImageValid(file.type)) {
         newErrors.acceptType = true;
         break;
       }
